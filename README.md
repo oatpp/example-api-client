@@ -41,7 +41,7 @@ In this example you will find:
    |- DemoApiModels.hpp     // DTOs objects for DemoApiClient
    |- SimpleExample.hpp     // Simple (Synchronous) API calls example
    |- AsyncExample.hpp      // Async API calls example
-   |- main.cpp              // main is here
+   |- App.cpp              // main is here
     
 ```
 ---
@@ -139,7 +139,7 @@ public:
 
 ### Request executor configuration
 
-In ```main.cpp``` method ```run```.
+In ```App.cpp``` method ```run```.
 Try to substitute different ```RequestExecutors``` by switching from Curl to oatpp built-in request executor.
 
 ```c++
