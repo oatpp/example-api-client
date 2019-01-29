@@ -41,7 +41,7 @@ In this example you will find:
    |- DemoApiModels.hpp     // DTOs objects for DemoApiClient
    |- SimpleExample.hpp     // Simple (Synchronous) API calls example
    |- AsyncExample.hpp      // Async API calls example
-   |- App.cpp              // main is here
+   |- App.cpp               // main is here
     
 ```
 ---
