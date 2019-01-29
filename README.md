@@ -67,6 +67,7 @@ $ make run        ## Download, build, and install all dependencies. Run project
 $ docker build -t example-api-client .
 $ docker run -t example-api-client
 ```
+---
 
 ### ApiClient declaration overview
 
