@@ -1,1 +1,1 @@
-# example-api-client
+# example-api-client [![Build Status](https://dev.azure.com/lganzzzo/lganzzzo/_apis/build/status/oatpp.example-api-client?branchName=master)](https://dev.azure.com/lganzzzo/lganzzzo/_build?definitionId=14&branchName=master)
