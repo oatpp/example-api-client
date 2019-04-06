@@ -42,14 +42,14 @@ private:
       auto dto = MyRequestDto::createShared();
       dto->message = m_message;
       dto->code = m_code;
-      return m_client->doPostWithDtoAsync(this, &SendDtoCoroutine::onResponse, dto);
+      return m_client->doPostWithDtoAsync(dto).callbackTo(&SendDtoCoroutine::onResponse);
     }
     
     /**
      * Receive response and read body asynchronously
      */
     Action onResponse(const std::shared_ptr<Response>& response) {
-      return response->readBodyToStringAsync(this, &SendDtoCoroutine::onBody);
+      return response->readBodyToStringAsync().callbackTo(&SendDtoCoroutine::onBody);
     }
     
     /**
@@ -70,11 +70,11 @@ private:
     SendCoroutine(const std::shared_ptr<DemoApiClient> client) : m_client(client) {}
 
     Action act() override {
-      return m_client->doPostAsync(this, &SendDtoCoroutine::onResponse, "<POST-DATA-HERE>");
+      return m_client->doPostAsync("<POST-DATA-HERE>").callbackTo(&SendDtoCoroutine::onResponse);
     }
     
     Action onResponse(const std::shared_ptr<Response>& response) {
-      return response->readBodyToStringAsync(this, &SendDtoCoroutine::onBody);
+      return response->readBodyToStringAsync().callbackTo(&SendDtoCoroutine::onBody);
     }
     
     Action onBody(const oatpp::String& body) {
@@ -90,9 +90,9 @@ public:
     
     oatpp::async::Processor processor;
     
-    processor.addCoroutine(SendDtoCoroutine::getBench().obtain(client, "message1", 10000));
-    processor.addCoroutine(SendDtoCoroutine::getBench().obtain(client, "message2", 20000));
-    processor.addCoroutine(SendDtoCoroutine::getBench().obtain(client, "message3", 30000));
+    processor.addCoroutine(new SendDtoCoroutine(client, "message1", 10000));
+    processor.addCoroutine(new SendDtoCoroutine(client, "message2", 20000));
+    processor.addCoroutine(new SendDtoCoroutine(client, "message3", 30000));
     
     while (!processor.isEmpty()) {
       processor.iterate(1);
