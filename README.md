@@ -123,11 +123,11 @@ public:
   SendCoroutine(const std::shared_ptr<DemoApiClient> client) : m_client(client) {}
 
   Action act() override {
-    return m_client->doPostAsync(this, &SendDtoCoroutine::onResponse, "<POST-DATA-HERE>");
+    return m_client->doPostAsync("<POST-DATA-HERE>").callbackTo(&SendDtoCoroutine::onResponse);
   }
 
   Action onResponse(const std::shared_ptr<Response>& response) {
-    return response->readBodyToStringAsync(this, &SendDtoCoroutine::onBody);
+    return response->readBodyToStringAsync().callbackTo(&SendDtoCoroutine::onBody);
   }
 
   Action onBody(const oatpp::String& body) {
