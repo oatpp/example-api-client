@@ -11,7 +11,7 @@
 
 #include "./DemoApiClient.hpp"
 
-#include "oatpp/core/async/Processor.hpp"
+#include "oatpp/core/async/Executor.hpp"
 
 class AsyncExample {
 private:
@@ -87,16 +87,16 @@ private:
 public:
   
   void static runExample(const std::shared_ptr<DemoApiClient>& client) {
-    
-    oatpp::async::Processor processor;
-    
-    processor.addCoroutine(new SendDtoCoroutine(client, "message1", 10000));
-    processor.addCoroutine(new SendDtoCoroutine(client, "message2", 20000));
-    processor.addCoroutine(new SendDtoCoroutine(client, "message3", 30000));
-    
-    while (!processor.isEmpty()) {
-      processor.iterate(1);
-    }
+
+    oatpp::async::Executor executor(1, 1, 1);
+
+    executor.execute<SendDtoCoroutine>(client, "message1", 10000);
+    executor.execute<SendDtoCoroutine>(client, "message2", 10000);
+    executor.execute<SendDtoCoroutine>(client, "message3", 10000);
+
+    executor.waitTasksFinished();
+    executor.stop();
+    executor.join();
     
   }
   
