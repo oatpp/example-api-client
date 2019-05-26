@@ -10,10 +10,8 @@ add_library(${project_name}-lib
         src/AsyncExample.hpp
         src/DemoApiClient.hpp
         src/DemoApiModels.hpp
-        src/Logger.cpp
-        src/Logger.hpp
         src/SimpleExample.hpp
-)
+        src/AsyncExample.cpp)
 
 ## link libs
 

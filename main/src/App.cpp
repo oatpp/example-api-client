@@ -10,7 +10,6 @@
 #include "SimpleExample.hpp"
 
 #include "DemoApiClient.hpp"
-#include "Logger.hpp"
 
 #include "oatpp-curl/RequestExecutor.hpp"
 
@@ -49,12 +48,10 @@ void run(){
 }
 
 int main(int argc, const char * argv[]) {
-  oatpp::base::Environment::setLogger(new Logger()); // set Logger to print logs
+
   oatpp::base::Environment::init();
   
   run();
-  
-  oatpp::base::Environment::setLogger(nullptr); // free Logger
   
   /* Print how much objects were created during app running, and what have left-probably leaked */
   /* Disable object counting for release builds using '-D OATPP_DISABLE_ENV_OBJECT_COUNTERS' flag for better performance */
