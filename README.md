@@ -27,13 +27,10 @@ In this example you will find:
 ### Project layout
 
 ```
-- CMakeLists.txt          // project loader script. load and build dependencies 
-- main/                   // main project directory
-    |
-    |- CMakeLists.txt     // projects CMakeLists.txt
-    |- src/               // source folder
-    |- test/              // test folder
-
+- CMakeLists.txt                        // projects CMakeLists.txt
+- src/                                  // source folder
+- test/                                 // test folder
+- utility/install-oatpp-modules.sh      // utility script to install required oatpp-modules.
 ```
 ```
 - src/
@@ -50,14 +47,20 @@ In this example you will find:
 
 #### Using CMake
 
-*Requires* Curl installed. You may refer to this sh script - how to install curl - 
+**Requires** 
+
+- Curl installed. You may refer to this sh script - how to install curl - 
 [install-curl.sh](https://github.com/oatpp/oatpp-curl/blob/master/utility/install-deps/install-curl.sh).  
 Or try something like ```$ apk add curl-dev```
+
+- `oatpp` and `oatpp-curl` modules installed. You may run `utility/install-oatpp-modules.sh` 
+script to install required oatpp modules.
 
 ```
 $ mkdir build && cd build
 $ cmake ..
-$ make run        ## Download, build, and install all dependencies. Run project
+$ make 
+$ ./example-api-client-exe  # - run application.
 
 ```
 
