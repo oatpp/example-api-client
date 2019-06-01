@@ -39,3 +39,6 @@ add_executable(${project_name}-test
 )
 target_link_libraries(${project_name}-test ${project_name}-lib)
 add_dependencies(${project_name}-test ${project_name}-lib)
+
+enable_testing()
+add_test(project-tests ${project_name}-test)
