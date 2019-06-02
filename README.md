@@ -1,11 +1,12 @@
 # ApiClient Example [![Build Status](https://dev.azure.com/lganzzzo/lganzzzo/_apis/build/status/oatpp.example-api-client?branchName=master)](https://dev.azure.com/lganzzzo/lganzzzo/_build?definitionId=14&branchName=master)
 
-Example project how-to use oatpp ```ApiClient``` and how it works
+Example project how-to use oatpp [ApiClient](https://oatpp.io/docs/components/api-client/) and how it works.
 
-More about oat++:
-- Website: [https://oatpp.io](https://oatpp.io)
-- ```ApiClient``` docs: [https://oatpp.io/docs/component/api-client](https://oatpp.io/docs/component/api-client)
-- Oat++ Repo: [https://github.com/oatpp/oatpp](https://github.com/oatpp/oatpp)
+See more:
+
+- [Oat++ Website](https://oatpp.io/)
+- [Oat++ Github Repository](https://github.com/oatpp/oatpp)
+- [Get Started](https://oatpp.io/docs/start)
 
 ## About ApiClient
 
@@ -27,19 +28,16 @@ In this example you will find:
 ### Project layout
 
 ```
-- CMakeLists.txt                        // projects CMakeLists.txt
-- src/                                  // source folder
-- test/                                 // test folder
-- utility/install-oatpp-modules.sh      // utility script to install required oatpp-modules.
-```
-```
-- src/
-   |- DemoApiClient.hpp     // ApiClient built for http://httpbin.org/ web service
-   |- DemoApiModels.hpp     // DTOs objects for DemoApiClient
-   |- SimpleExample.hpp     // Simple (Synchronous) API calls example
-   |- AsyncExample.hpp      // Async API calls example
-   |- App.cpp               // main is here
-    
+|- CMakeLists.txt                          // projects CMakeLists.txt
+|- src/
+|   |- DemoApiClient.hpp                   // ApiClient built for http://httpbin.org/ web service
+|   |- DemoApiModels.hpp                   // DTOs objects for DemoApiClient
+|   |- SimpleExample.hpp                   // Simple (Synchronous) API calls example
+|   |- AsyncExample.hpp                    // Async API calls example
+|   |- App.cpp                             // main is here
+|   
+|- test/                                   // test folder
+|- utility/install-oatpp-modules.sh        // utility script to install required oatpp-modules.
 ```
 ---
 
@@ -60,7 +58,7 @@ script to install required oatpp modules.
 $ mkdir build && cd build
 $ cmake ..
 $ make 
-$ ./example-api-client-exe  # - run application.
+$ ./example-api-client-exe      # - run application.
 
 ```
 
