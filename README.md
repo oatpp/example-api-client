@@ -10,13 +10,17 @@ See more:
 
 ## About ApiClient
 
-oatpp ```ApiClient``` is a mechanism which enables you to generate Web Api Clients in declarative manner.
-Under the hood it uses provided ```RequestExecutor``` to perform http requests. Thus you are abstracted from the low-level http-client library implementation and can substitute any other http-client library at any time with zero code changes.  
-*Roughly you may treat oatpp ```ApiClient``` as Java Retrofit for C++.*
+oatpp `ApiClient` is a mechanism which enables you to generate Web Api Clients in declarative manner.
+Under the hood it uses provided `RequestExecutor` to perform http requests. Thus you are abstracted from the low-level http-client library implementation and can substitute any other http-client library at any time with zero code changes.  
+*Roughly you may treat oatpp `ApiClient` as Java Retrofit for C++.*
 
 In this example you can configure to use such RequestExecutors:
+
 - [oatpp-curl](https://github.com/oatpp/oatpp-curl) - RequestExecutor for oatpp's ApiClient based on libcurl.
-- ```oatpp::web::client::HttpRequestExecutor``` - oatpp out-of-the-box provided RequestExecutor
+- `oatpp::web::client::HttpRequestExecutor` - oatpp out-of-the-box provided RequestExecutor
+
+Please note: it is recommended to use native out-of-the-box `oatpp::web::client::HttpRequestExecutor`. It is better integrated 
+with oatpp and supports additional features like connection pools, retries, streaming of large data, and custom transport substitution.
 
 ## Example overview
 

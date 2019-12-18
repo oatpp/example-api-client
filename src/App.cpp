@@ -35,8 +35,8 @@ void run(){
   auto objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
   
   /* Create RequestExecutor which will execute ApiClient's requests */
-  //auto requestExecutor = createOatppExecutor();
-  auto requestExecutor = createCurlExecutor();
+  auto requestExecutor = createOatppExecutor();
+  //auto requestExecutor = createCurlExecutor();
   
   /* DemoApiClient uses DemoRequestExecutor and json::mapping::ObjectMapper */
   /* ObjectMapper passed here is used for serialization of outgoing DTOs */
