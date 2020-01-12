@@ -21,11 +21,13 @@
 #include <iostream>
 
 std::shared_ptr<oatpp::web::client::RequestExecutor> createOatppExecutor() {
+  OATPP_LOGD("App", "Using Oat++ native HttpRequestExecutor.");
   auto connectionProvider = oatpp::network::client::SimpleTCPConnectionProvider::createShared("httpbin.org", 80);
   return oatpp::web::client::HttpRequestExecutor::createShared(connectionProvider);
 }
 
 std::shared_ptr<oatpp::web::client::RequestExecutor> createCurlExecutor() {
+  OATPP_LOGD("App", "Using oatpp-curl RequestExecutor.");
   return oatpp::curl::RequestExecutor::createShared("http://httpbin.org/", false /* set verbose=true for dubug info */);
 }
 
@@ -35,8 +37,8 @@ void run(){
   auto objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
   
   /* Create RequestExecutor which will execute ApiClient's requests */
-  auto requestExecutor = createOatppExecutor();
-  //auto requestExecutor = createCurlExecutor();
+  auto requestExecutor = createOatppExecutor();   // <-- Always use oatpp native executor where's possible.
+  //auto requestExecutor = createCurlExecutor();  // <-- Curl request executor
   
   /* DemoApiClient uses DemoRequestExecutor and json::mapping::ObjectMapper */
   /* ObjectMapper passed here is used for serialization of outgoing DTOs */
