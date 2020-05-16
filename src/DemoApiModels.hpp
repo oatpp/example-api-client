@@ -1,10 +1,3 @@
-//
-//  DemoApiModels.hpp
-//  ApiClient-Demo
-//
-//  Created by Leonid on 11/9/18.
-//  Copyright © 2018 oatpp. All rights reserved.
-//
 
 #ifndef DemoApiModels_hpp
 #define DemoApiModels_hpp

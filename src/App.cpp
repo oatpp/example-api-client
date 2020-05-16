@@ -1,10 +1,3 @@
-//
-//  main.cpp
-//  ApiClient-Demo
-//
-//  Created by Leonid on 3/14/18.
-//  Copyright © 2018 oatpp. All rights reserved.
-//
 
 #include "AsyncExample.hpp"
 #include "SimpleExample.hpp"

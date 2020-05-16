@@ -1,10 +1,3 @@
-//
-//  SimpleExample.hpp
-//  ApiClient-Demo
-//
-//  Created by Leonid on 11/9/18.
-//  Copyright © 2018 oatpp. All rights reserved.
-//
 
 #ifndef SimpleExample_hpp
 #define SimpleExample_hpp
