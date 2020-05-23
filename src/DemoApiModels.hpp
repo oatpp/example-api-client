@@ -2,23 +2,23 @@
 #ifndef DemoApiModels_hpp
 #define DemoApiModels_hpp
 
-#include "oatpp/core/data/mapping/type/Object.hpp"
+#include "oatpp/core/Types.hpp"
 #include "oatpp/core/macro/codegen.hpp"
 
 #include OATPP_CODEGEN_BEGIN(DTO)
 
-class MyRequestDto : public oatpp::data::mapping::type::Object {
+class MyRequestDto : public oatpp::DTO {
   
-  DTO_INIT(MyRequestDto, Object)
+  DTO_INIT(MyRequestDto, DTO)
   
   DTO_FIELD(String, message);
   DTO_FIELD(Int32, code);
   
 };
 
-class HttpBinResponseDto : public oatpp::data::mapping::type::Object {
+class HttpBinResponseDto : public oatpp::DTO {
   
-  DTO_INIT(HttpBinResponseDto, Object)
+  DTO_INIT(HttpBinResponseDto, DTO)
   
   DTO_FIELD(String, data);
   DTO_FIELD(Fields<String>::ObjectWrapper, headers);

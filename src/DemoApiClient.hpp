@@ -22,7 +22,7 @@ class DemoApiClient : public oatpp::web::client::ApiClient {
   API_CALL("PATCH", "patch", doPatch, BODY_STRING(String, body))
   API_CALL("DELETE", "delete", doDelete)
   
-  API_CALL("POST", "post", doPostWithDto, BODY_DTO(MyRequestDto::ObjectWrapper, body))
+  API_CALL("POST", "post", doPostWithDto, BODY_DTO(Object<MyRequestDto>, body))
   
   API_CALL("GET", "anything/{parameter}", doGetAnything, PATH(String, parameter))
   API_CALL("POST", "anything/{parameter}", doPostAnything, PATH(String, parameter), BODY_STRING(String, body))
@@ -39,7 +39,7 @@ class DemoApiClient : public oatpp::web::client::ApiClient {
   API_CALL_ASYNC("PATCH", "patch", doPatchAsync, BODY_STRING(String, body))
   API_CALL_ASYNC("DELETE", "delete", doDeleteAsync)
   
-  API_CALL_ASYNC("POST", "post", doPostWithDtoAsync, BODY_DTO(MyRequestDto::ObjectWrapper, body))
+  API_CALL_ASYNC("POST", "post", doPostWithDtoAsync, BODY_DTO(Object<MyRequestDto>, body))
   
   API_CALL_ASYNC("GET", "anything/{parameter}", doGetAnythingAsync, PATH(String, parameter))
   API_CALL_ASYNC("POST", "anything/{parameter}", doPostAnythingAsync, PATH(String, parameter), BODY_STRING(String, body))
