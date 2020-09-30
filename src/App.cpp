@@ -7,7 +7,7 @@
 #include "oatpp-curl/RequestExecutor.hpp"
 
 #include "oatpp/web/client/HttpRequestExecutor.hpp"
-#include "oatpp/network/client/SimpleTCPConnectionProvider.hpp"
+#include "oatpp/network/tcp/client/ConnectionProvider.hpp"
 
 #include "oatpp/parser/json/mapping/ObjectMapper.hpp"
 
@@ -15,7 +15,7 @@
 
 std::shared_ptr<oatpp::web::client::RequestExecutor> createOatppExecutor() {
   OATPP_LOGD("App", "Using Oat++ native HttpRequestExecutor.");
-  auto connectionProvider = oatpp::network::client::SimpleTCPConnectionProvider::createShared("httpbin.org", 80);
+  auto connectionProvider = oatpp::network::tcp::client::ConnectionProvider::createShared({"httpbin.org", 80});
   return oatpp::web::client::HttpRequestExecutor::createShared(connectionProvider);
 }
 
